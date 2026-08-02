@@ -11,7 +11,7 @@
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
     "format": "prettier --write --experimental-cli src/",
-    "test:mocha": "mocha \"tests/mocha/**/*.spec.js\""
+    "test:mocha": "node --loader ./tests/mocha/vue-loader.mjs ./node_modules/mocha/bin/mocha.js --require ./tests/mocha/setup.js \"tests/mocha/**/*.spec.js\""
   },
   "dependencies": {
     "vue": "^3.5.40"
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/compiler-sfc": "^3.5.40",
     "@vue/test-utils": "^2.4.11",
     "chai": "^6.2.2",
     "eslint": "^10.7.0",
