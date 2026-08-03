@@ -1,8 +1,24 @@
 import { readFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+import { resolve as resolvePath } from 'node:path'
 
 import { compileScript, parse } from '@vue/compiler-sfc'
+
+export async function resolve(specifier, context, nextResolve) {
+  if (specifier.startsWith('@/')) {
+    const relativePath = specifier.slice(2)
+    const extension = relativePath.endsWith('.js') ? '' : '.js'
+    const absolutePath = resolvePath(process.cwd(), 'src', `${relativePath}${extension}`)
+
+    return {
+      url: pathToFileURL(absolutePath).href,
+      shortCircuit: true,
+    }
+  }
+
+  return nextResolve(specifier, context)
+}
 
 export async function load(url, context, nextLoad) {
   if (!url.endsWith('.vue')) {
