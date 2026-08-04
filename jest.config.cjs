@@ -7,7 +7,14 @@ module.exports = {
 
   transform: {
     '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.js$': 'babel-jest',
   },
 
-  transformIgnorePatterns: [],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
+
+  transformIgnorePatterns: [
+    '/node_modules/(?!(?:@vue/compiler-dom|@vue/compiler-core|@vue/shared)/)',
+  ],
 }
