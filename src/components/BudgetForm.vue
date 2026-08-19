@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import { validateTransaction } from '@/utils/budgetCalculations'
+import { budgetCalculations } from '@/utils/budgetCalculations'
 
 const emit = defineEmits(['add-transaction'])
 
@@ -24,7 +24,7 @@ function handleSubmit() {
     type: type.value,
   }
 
-  if (!validateTransaction(transaction)) {
+  if (!budgetCalculations.validateTransaction(transaction)) {
     errorMessage.value =
       'Bitte gib eine Beschreibung, einen Betrag größer als 0 und einen gültigen Typ an.'
     return

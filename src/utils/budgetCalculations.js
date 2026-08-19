@@ -24,3 +24,10 @@ export function validateTransaction(transaction) {
     (transaction.type === 'income' || transaction.type === 'expense')
   )
 }
+
+export const budgetCalculations = {
+  calculateTotalIncome,
+  calculateTotalExpenses,
+  calculateBalance,
+  validateTransaction,
+}
