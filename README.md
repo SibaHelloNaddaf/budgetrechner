@@ -1,44 +1,68 @@
-# .
+# Budgetrechner – Bachelorarbeit
 
-This template should help get you started developing with Vue 3 in Vite.
+Dieses Repository enthält den im Rahmen der Bachelorarbeit
+„Vergleich von Testing-Frameworks für Web-Frontend-Architekturen“
+entwickelten Vue-3-Budget-Prototyp sowie die dazugehörigen automatisierten
+Tests.
 
-## Recommended IDE Setup
+## Testvarianten
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Für den Vergleich wurden zwei Testvarianten umgesetzt:
 
-## Recommended Browser Setup
+- `test/jest` – Tests mit Jest
+- `test/mocha-chai` – Tests mit Mocha und Chai sowie Sinon für Mocking
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Beide Varianten umfassen fachlich identische Testfälle:
 
-## Customize configuration
+- 11 Unit-Tests
+- 16 Component-Tests
+- insgesamt 27 Testfälle je Testvariante
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Installation
 
-## Project Setup
+Nach dem Wechsel in den gewünschten Branch:
 
-```sh
-npm install
+```bash
+npm ci
 ```
 
-### Compile and Hot-Reload for Development
+## Tests ausführen
 
-```sh
+### Jest
+
+```bash
+git checkout test/jest
+npm ci
+npm run test:jest
+```
+
+### Mocha/Chai
+
+```bash
+git checkout test/mocha-chai
+npm ci
+npm test
+```
+
+## Anwendung starten
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Performance-Messung
 
-```sh
-npm run build
-```
+Für die externe Messung der Testausführungszeiten wurde das Skript
+`scripts/measure.js` verwendet.
 
-### Lint with [ESLint](https://eslint.org/)
+Die ausführliche Dokumentation der Messmethodik und Messergebnisse befindet
+sich unter: [docs/PERFORMANCE_MEASUREMENT.md](docs/PERFORMANCE_MEASUREMENT.md)
 
-```sh
-npm run lint
-```
+## Projektkontext
+
+Das Repository gehört zur Bachelorarbeit im Studiengang
+Wirtschaftsinformatik an der Hochschule für Technik und Wirtschaft Berlin
+(HTW Berlin). Die Untersuchung bezieht sich auf den entwickelten
+Vue-3-Budget-Prototyp und den in der Bachelorarbeit beschriebenen
+Versuchsaufbau.
+
