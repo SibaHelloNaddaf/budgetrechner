@@ -1,50 +1,129 @@
-# .
+# Budgetrechner – Bachelorarbeit
 
-This template should help get you started developing with Vue 3 in Vite.
+Dieses Repository enthält den im Rahmen der Bachelorarbeit
+„Vergleich von Testing-Frameworks für Web-Frontend-Architekturen“
+entwickelten Vue-3-Budget-Prototypen sowie die dazugehörigen automatisierten
+Tests.
 
-## Recommended IDE Setup
+## Technische Umgebung
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Node.js 22.23.1
+- npm 10.9.8
+- Vue 3
+- Vite
 
-## Recommended Browser Setup
+## Testvarianten
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Für den Vergleich wurden zwei Testvarianten umgesetzt:
 
-## Customize configuration
+- `test/jest` – Tests mit Jest
+- `test/mocha-chai` – Tests mit Mocha und Chai sowie Sinon für Mocking
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Beide Varianten umfassen fachlich identische Testfälle:
 
-## Project Setup
+- 11 Unit-Tests
+- 16 Component-Tests
+- insgesamt 27 Testfälle je Testvariante
 
-```sh
-npm install
+## Projektstruktur
+
+- `src/` – Quellcode des Vue-3-Budget-Prototyps
+- `tests/jest/` – Jest-Testdateien im Branch `test/jest`
+- `tests/mocha/` – Mocha-/Chai-Testdateien im Branch `test/mocha-chai`
+- `scripts/measure.js` – Skript zur externen Performance-Messung
+- `docs/` – ergänzende Dokumentation der Performance-Messung
+
+## Installation
+
+Die beiden Testvarianten befinden sich in getrennten Git-Branches.
+Zunächst wird der gewünschte Branch ausgecheckt. Anschließend werden die
+jeweiligen Abhängigkeiten installiert.
+
+### Jest
+
+```bash
+git checkout test/jest
+npm ci
 ```
 
-### Compile and Hot-Reload for Development
+### Mocha/Chai
 
-```sh
+```bash
+git checkout test/mocha-chai
+npm ci
+```
+
+## Tests ausführen
+
+### Jest
+
+```bash
+git checkout test/jest
+npm ci
+npm run test:jest
+```
+
+Erwartetes Ergebnis:
+
+```
+Test Suites: 4 passed, 4 total
+Tests:       27 passed, 27 total
+```
+
+### Mocha/Chai
+
+```bash
+git checkout test/mocha-chai
+npm ci
+npm run test:mocha
+```
+
+Erwartetes Ergebnis:
+
+```
+27 passing
+```
+
+## Anwendung starten
+
+Nach der Installation der Abhängigkeiten kann der Vue-3-Budget-Prototyp
+mit folgendem Befehl gestartet werden:
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Performance-Messung
 
-```sh
-npm run build
+Für die externe Messung der Testausführungszeiten wurde das Skript
+`scripts/measure.js` verwendet.
+
+Die Messung kann für die jeweilige Testvariante mit folgenden Befehlen
+durchgeführt werden.
+
+### Jest
+
+```bash
+node scripts/measure.js test:jest 10 --warmup
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Mocha/Chai
 
-```sh
-npm run lint
+```bash
+node scripts/measure.js test:mocha 10 --warmup
 ```
 
-### Run tests
+Die ausführliche Dokumentation der Messmethodik, Einzelmessungen und
+Ergebnisse befindet sich unter:
+[docs/PERFORMANCE_MEASUREMENT.md](docs/PERFORMANCE_MEASUREMENT.md)
 
-```sh
-npm test
-```
+## Projektkontext
+
+Das Repository gehört zur Bachelorarbeit im Studiengang Wirtschaftsinformatik
+an der Hochschule für Technik und Wirtschaft Berlin (HTW Berlin).
+
+Die Untersuchung bezieht sich auf den entwickelten Vue-3-Budget-Prototypen,
+die implementierten 27 Testfälle je Testvariante und den in der
+Bachelorarbeit beschriebenen Versuchsaufbau.
+
+
