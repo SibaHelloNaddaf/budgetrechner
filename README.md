@@ -90,13 +90,11 @@ src/
 
 ## Performance-Messung
 
-Für den Performance-Vergleich wurde ein einheitliches externes Messverfahren
-verwendet.
+Für den Performance-Vergleich wurde ein einheitliches externes Messverfahren verwendet.
 
-Weitere Informationen zur Durchführung der Messungen befinden sich unter:
+Die Dokumentation der Performance-Messung sowie das zugehörige Messskript befinden sich in den beiden Test-Branches `test/jest` und `test/mocha-chai`.
 
-`docs/PERFORMANCE_MEASUREMENT.md`
+Dort befinden sich:
 
-Das zugehörige Messskript befindet sich unter:
-
-`scripts/measure.js`
+- `docs/PERFORMANCE_MEASUREMENT.md` - Beschreibung der Messmethodik
+- `scripts/measure.js` - Skript zur externen Laufzeitmessung
