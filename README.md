@@ -98,3 +98,49 @@ Dort befinden sich:
 
 - `docs/PERFORMANCE_MEASUREMENT.md` - Beschreibung der Messmethodik
 - `scripts/measure.js` - Skript zur externen Laufzeitmessung
+
+## Dokumentation
+
+### Zweck
+
+Der Budget-Prototyp wurde im Rahmen der Bachelorarbeit
+„Vergleich von Testing-Frameworks für Web-Frontend-Architekturen“
+entwickelt und dient als Untersuchungsobjekt für den Vergleich von
+Jest und Mocha/Chai anhand fachlich identischer Unit- und Component-Tests.
+
+### Autor
+
+Siba Hello Naddaf  
+Studiengang Wirtschaftsinformatik  
+Hochschule für Technik und Wirtschaft Berlin (HTW Berlin)
+
+### Entwicklungszeitraum
+
+Die Entwicklung des Prototyps sowie die Implementierung und Auswertung
+der automatisierten Tests erfolgten im Jahr 2026.
+
+### Sprache und Dateiformate
+
+Die Software wurde mit JavaScript und Vue entwickelt.
+
+Verwendete Dateiformate sind insbesondere:
+
+- `.js` – JavaScript-Quellcode und Tests
+- `.vue` – Vue-Komponenten
+- `.json` – Projekt- und Paketkonfiguration
+- `.md` – Dokumentation
+
+### Qualitätssicherung
+
+Für beide Testvarianten wurden 27 fachlich identische Testfälle umgesetzt:
+
+- 11 Unit-Tests
+- 16 Component-Tests
+
+Die Performance-Messungen wurden auf demselben Rechner und unter
+möglichst identischen technischen Bedingungen durchgeführt.
+
+### Datenschutz
+
+Im Repository werden keine personenbezogenen oder sensiblen
+Forschungsdaten verarbeitet oder veröffentlicht.
