@@ -144,3 +144,11 @@ möglichst identischen technischen Bedingungen durchgeführt.
 
 Im Repository werden keine personenbezogenen oder sensiblen
 Forschungsdaten verarbeitet oder veröffentlicht.
+
+## Lizenz
+
+Soweit nicht anders gekennzeichnet, steht der in diesem Repository selbst erstellte Quellcode unter der MIT License.
+
+Siehe `LICENSE`.
+
+Verwendete Abhängigkeiten und Drittsoftware unterliegen ihren jeweiligen Lizenzen.
