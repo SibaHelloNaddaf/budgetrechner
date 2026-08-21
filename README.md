@@ -2,7 +2,7 @@
 
 Dieses Repository enthält den im Rahmen der Bachelorarbeit
 „Vergleich von Testing-Frameworks für Web-Frontend-Architekturen“
-entwickelten Budget-Prototypen.
+entwickelten Vue-3-Budget-Prototypen.
 
 Die Anwendung wurde mit Vue 3 und Vite umgesetzt und dient als gemeinsames
 Untersuchungsobjekt für den Vergleich von Jest und Mocha/Chai.
@@ -14,22 +14,23 @@ Untersuchungsobjekt für den Vergleich von Jest und Mocha/Chai.
 - Vue 3
 - Vite
 
-## Branches
+## Testvarianten
 
-Für die beiden Testvarianten existieren getrennte Branches:
+Für den Vergleich wurden zwei getrennte Git-Branches verwendet:
 
-- `test/jest` – Testumgebung mit Jest
-- `test/mocha-chai` – Testumgebung mit Mocha und Chai
+- `test/jest` - Testumgebung mit Jest
+- `test/mocha-chai` - Testumgebung mit Mocha und Chai
 
 Beide Varianten enthalten dieselben 27 fachlichen Testfälle:
 
 - 11 Unit-Tests
 - 16 Component-Tests
+- insgesamt 27 Testfälle je Testvariante
 
 ## Installation
 
-Nach dem Klonen des Repositories müssen zunächst die Abhängigkeiten
-installiert werden.
+Nach dem Wechsel in den gewünschten Branch werden die branchspezifischen
+Abhängigkeiten mit folgendem Befehl installiert:
 
 ```bash
 npm ci
@@ -51,21 +52,23 @@ http://localhost:5173/
 
 ## Tests mit Jest
 
-Im Branch `test/jest` können die Jest-Tests mit folgendem Befehl ausgeführt
-werden:
+Zum Jest-Branch wechseln:
 
 ```bash
+git checkout test/jest
+npm ci
 npm run test:jest
 ```
 
-Die Testsuite umfasst insgesamt 27 Tests.
+Die Jest-Testsuite umfasst insgesamt 27 Tests.
 
 ## Tests mit Mocha und Chai
 
-Im Branch `test/mocha-chai` können die Mocha-/Chai-Tests mit folgendem
-Befehl ausgeführt werden:
+Zum Mocha-/Chai-Branch wechseln:
 
 ```bash
+git checkout test/mocha-chai
+npm ci
 npm run test:mocha
 ```
 
@@ -97,11 +100,3 @@ Weitere Informationen zur Durchführung der Messungen befinden sich unter:
 Das zugehörige Messskript befindet sich unter:
 
 `scripts/measure.js`
-
-## Kontext
-
-Das Projekt wurde im Rahmen einer Bachelorarbeit im Studiengang
-Wirtschaftsinformatik an der Hochschule für Technik und Wirtschaft Berlin
-entwickelt.
-
-
