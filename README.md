@@ -1,44 +1,102 @@
-# .
+# Budgetrechner
 
-This template should help get you started developing with Vue 3 in Vite.
+Dieses Repository enthält den im Rahmen der Bachelorarbeit
+„Vergleich von Testing-Frameworks für Web-Frontend-Architekturen“
+entwickelten Vue-3-Budget-Prototypen.
 
-## Recommended IDE Setup
+Die Anwendung wurde mit Vue 3 und Vite umgesetzt und dient als gemeinsames
+Untersuchungsobjekt für den Vergleich von Jest und Mocha/Chai.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Technische Umgebung
 
-## Recommended Browser Setup
+- Node.js 22.23.1
+- npm 10.9.8
+- Vue 3
+- Vite
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Testvarianten
 
-## Customize configuration
+Für den Vergleich wurden zwei getrennte Git-Branches verwendet:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- `test/jest` - Testumgebung mit Jest
+- `test/mocha-chai` - Testumgebung mit Mocha und Chai
 
-## Project Setup
+Beide Varianten enthalten dieselben 27 fachlichen Testfälle:
 
-```sh
-npm install
+- 11 Unit-Tests
+- 16 Component-Tests
+- insgesamt 27 Testfälle je Testvariante
+
+## Installation
+
+Nach dem Wechsel in den gewünschten Branch werden die branchspezifischen
+Abhängigkeiten mit folgendem Befehl installiert:
+
+```bash
+npm ci
 ```
 
-### Compile and Hot-Reload for Development
+## Anwendung starten
 
-```sh
+Die Vue-Anwendung wird mit folgendem Befehl gestartet:
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Vite gibt anschließend die lokale Adresse der Anwendung aus, in der Regel:
 
-```sh
-npm run build
+```text
+http://localhost:5173/
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Tests mit Jest
 
-```sh
-npm run lint
+Zum Jest-Branch wechseln:
+
+```bash
+git checkout test/jest
+npm ci
+npm run test:jest
 ```
+
+Die Jest-Testsuite umfasst insgesamt 27 Tests.
+
+## Tests mit Mocha und Chai
+
+Zum Mocha-/Chai-Branch wechseln:
+
+```bash
+git checkout test/mocha-chai
+npm ci
+npm run test:mocha
+```
+
+Auch diese Testsuite umfasst insgesamt 27 fachlich identische Tests.
+
+## Projektstruktur
+
+```text
+src/
+├── components/
+│   ├── BudgetForm.vue
+│   ├── BudgetSummary.vue
+│   └── TransactionList.vue
+├── utils/
+│   └── budgetCalculations.js
+├── App.vue
+└── main.js
+```
+
+## Performance-Messung
+
+Für den Performance-Vergleich wurde ein einheitliches externes Messverfahren
+verwendet.
+
+Weitere Informationen zur Durchführung der Messungen befinden sich unter:
+
+`docs/PERFORMANCE_MEASUREMENT.md`
+
+Das zugehörige Messskript befindet sich unter:
+
+`scripts/measure.js`
