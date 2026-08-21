@@ -1,18 +1,27 @@
-# Budgetrechner – Bachelorarbeit
+# Budgetrechner
 
 Dieses Repository enthält den im Rahmen der Bachelorarbeit
 „Vergleich von Testing-Frameworks für Web-Frontend-Architekturen“
-entwickelten Vue-3-Budget-Prototyp sowie die dazugehörigen automatisierten
-Tests.
+entwickelten Vue-3-Budget-Prototypen.
+
+Die Anwendung wurde mit Vue 3 und Vite umgesetzt und dient als gemeinsames
+Untersuchungsobjekt für den Vergleich von Jest und Mocha/Chai.
+
+## Technische Umgebung
+
+- Node.js 22.23.1
+- npm 10.9.8
+- Vue 3
+- Vite
 
 ## Testvarianten
 
-Für den Vergleich wurden zwei Testvarianten umgesetzt:
+Für den Vergleich wurden zwei getrennte Git-Branches verwendet:
 
-- `test/jest` – Tests mit Jest
-- `test/mocha-chai` – Tests mit Mocha und Chai sowie Sinon für Mocking
+- `test/jest` - Testumgebung mit Jest
+- `test/mocha-chai` - Testumgebung mit Mocha und Chai
 
-Beide Varianten umfassen fachlich identische Testfälle:
+Beide Varianten enthalten dieselben 27 fachlichen Testfälle:
 
 - 11 Unit-Tests
 - 16 Component-Tests
@@ -20,15 +29,30 @@ Beide Varianten umfassen fachlich identische Testfälle:
 
 ## Installation
 
-Nach dem Wechsel in den gewünschten Branch:
+Nach dem Wechsel in den gewünschten Branch werden die branchspezifischen
+Abhängigkeiten mit folgendem Befehl installiert:
 
 ```bash
 npm ci
 ```
 
-## Tests ausführen
+## Anwendung starten
 
-### Jest
+Die Vue-Anwendung wird mit folgendem Befehl gestartet:
+
+```bash
+npm run dev
+```
+
+Vite gibt anschließend die lokale Adresse der Anwendung aus, in der Regel:
+
+```text
+http://localhost:5173/
+```
+
+## Tests mit Jest
+
+Zum Jest-Branch wechseln:
 
 ```bash
 git checkout test/jest
@@ -36,33 +60,43 @@ npm ci
 npm run test:jest
 ```
 
-### Mocha/Chai
+Die Jest-Testsuite umfasst insgesamt 27 Tests.
+
+## Tests mit Mocha und Chai
+
+Zum Mocha-/Chai-Branch wechseln:
 
 ```bash
 git checkout test/mocha-chai
 npm ci
-npm test
+npm run test:mocha
 ```
 
-## Anwendung starten
+Auch diese Testsuite umfasst insgesamt 27 fachlich identische Tests.
 
-```bash
-npm run dev
+## Projektstruktur
+
+```text
+src/
+├── components/
+│   ├── BudgetForm.vue
+│   ├── BudgetSummary.vue
+│   └── TransactionList.vue
+├── utils/
+│   └── budgetCalculations.js
+├── App.vue
+└── main.js
 ```
 
 ## Performance-Messung
 
-Für die externe Messung der Testausführungszeiten wurde das Skript
-`scripts/measure.js` verwendet.
+Für den Performance-Vergleich wurde ein einheitliches externes Messverfahren
+verwendet.
 
-Die ausführliche Dokumentation der Messmethodik und Messergebnisse befindet
-sich unter: [docs/PERFORMANCE_MEASUREMENT.md](docs/PERFORMANCE_MEASUREMENT.md)
+Weitere Informationen zur Durchführung der Messungen befinden sich unter:
 
-## Projektkontext
+`docs/PERFORMANCE_MEASUREMENT.md`
 
-Das Repository gehört zur Bachelorarbeit im Studiengang
-Wirtschaftsinformatik an der Hochschule für Technik und Wirtschaft Berlin
-(HTW Berlin). Die Untersuchung bezieht sich auf den entwickelten
-Vue-3-Budget-Prototyp und den in der Bachelorarbeit beschriebenen
-Versuchsaufbau.
+Das zugehörige Messskript befindet sich unter:
 
+`scripts/measure.js`
